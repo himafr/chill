@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <h1>vowels {a e i o u }</h1>
+      <input type="text" id="dd" /><button id="do">submit</button>
+      <div id="letter"></div>
+    </div>
+    <script>
+      document.getElementById("do").addEventListener("click", function () {
+        document.getElementById("letter").innerHTML = ` `;
+        var s = document.getElementById("dd").value;
+
+        for (var x = 0; x < s.length; x++) {
+          var arr = ["a", "e", "o", "i", "u", "A", "E", "O", "I", "U"];
+          if (!arr.includes(s[x])) {
+            document.getElementById("letter").innerHTML += `<br><br> ${s[x]} `;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

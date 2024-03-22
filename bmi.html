@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bmi</title>
+  </head>
+  <body>
+    <div style="text-align: center; background-color: blanchedalmond">
+      <h3 for="text">الوزن</h3>
+      <input type="text" id="we" />
+      <div>
+        <h3 for="text">الطول</h3>
+        <input type="text" id="tall" />
+      </div>
+      <button id="answer">حساب</button>
+      <div>
+        <p id="tell"></p>
+        <p id="info" style="font-size: 30px"></p>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("answer").addEventListener("click", function () {
+        var q = document.getElementById("we").value;
+        var t = document.getElementById("tall").value;
+        var x = q / (t * t);
+        document.getElementById("tell").innerHTML = x;
+        var z = "kk";
+        if (x < 18) {
+          z = "نحافة";
+        } else if (x > 18 && x < 24.9) {
+          z = "وز مثالي";
+        } else if (x > 25 && x < 29.9) {
+          z = "وزن زائد";
+        } else if (x > 30 && x < 34.9) {
+          z = "سمنة درجه اولي";
+        } else if (x > 35 && x < 39.9) {
+          z = "سمنة درجة تانيه";
+        } else {
+          z = "سمنة خطيره";
+        }
+        document.getElementById("info").innerHTML = z;
+      });
+    </script>
+  </body>
+</html>

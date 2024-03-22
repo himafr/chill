@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hima</title>
+    <link rel="stylesheet" href="s.css">
+</head>
+<body>
+    <div style="text-align: center; padding-top: 30px; background-color: aqua;">
+    <input id="name" type="text">
+    <button id="put" >add</button>
+    <button id="del" >delete</button>
+    <h1 id="show"></h1>
+    
+</div>
+   <script >
+   var student =[ ]
+    document.getElementById("show").innerHTML= student
+    document.getElementById("put").addEventListener("click",
+    function(){
+    student.push(document.getElementById("name").value)
+    document.getElementById("show").innerHTML= student
+    }
+    )
+    document.getElementById("del").addEventListener("click",
+    function(){
+        student.pop()
+        document.getElementById("show").innerHTML= student
+    })</script>
+</body>
+</html>

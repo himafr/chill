@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>find name</title>
+    <style>
+      body {
+        color: aliceblue;
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-image: url("photo.jpg");
+        background-size: cover;
+      }
+      .me {
+        font-size: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        border: 2px solid rgb(182, 231, 226);
+        border-left: 0px;
+        border-right: 0px;
+      }
+      .ule {
+        text-align: center;
+        padding: 2px;
+        margin-top: 0%;
+        margin-bottom: 0%;
+        /* margin-left: -20px; */
+      }
+      li {
+        display: inline;
+        margin-left: 22px;
+      }
+      #show {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pos">
+      <nav class="me">
+        <ul class="ule">
+          <li>home</li>
+          <li>learn</li>
+          <li>about</li>
+        </ul>
+      </nav>
+      <div style="text-align: center">
+        <h1>find studen</h1>
+        <input id="find" type="text" />
+        <button id="search">search</button>
+        <br /><br />
+        <div id="show"></div>
+        <br /><br />
+        <div id="ans" style="font-size: 30px"></div>
+      </div>
+    </div>
+    <script>
+      var ppl = ["hima", "sallem", "ahmed", "sami", "amir", "khalid"];
+      for (var x = 0; x < ppl.length; x++) {
+        document.getElementById("show").innerHTML += `${ppl[x]} -- `;
+      }
+
+      document.getElementById("search").addEventListener("click", function () {
+        document.getElementById("ans").innerHTML = ` `;
+        var get = document.getElementById("find").value;
+        // console.log(m)
+        // console.log(m.toLowerCase())
+        var x = 0;
+        while (x < ppl.length) {
+          var z = get.toLowerCase();
+          if (ppl[x] == z) {
+            document.getElementById(
+              "ans"
+            ).innerHTML = `${get} is in the library `;
+            break;
+          }
+          document.getElementById(
+            "ans"
+          ).innerHTML = `${get} is not in the library `;
+          x++;
+        }
+      });
+    </script>
+  </body>
+</html>
