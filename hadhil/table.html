@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 72vh;
+    background-color: #2222;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+        }
+        table{
+            text-align: center;
+          background-color: black;
+        }
+        td{
+        
+            width: 80px;
+            height: auto;
+            background-color: beige;
+        }
+  .add{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 25vh;
+    align-items: center;
+    background-color: #4444;
+  }
+    </style>
+</head>
+<body>
+    <div class="add">
+
+        <label >first name<input required id="f-name" type="text"></label>
+        <label >last name<input required type="text" id="l-name"></label>
+        <label >your age<input required type="number" id="age"></label>
+        <label>Choose your Books: </label>
+        <select id="selector">
+            <option value="1"> F</option>
+            <option value="2"> C</option>
+            <option value="3"> C+</option>
+            <option value="3"> B</option>
+            <option value="4"> B+</option>
+            <option value="5"> A</option>
+            <option value="6"> A+</option>
+        
+        
+        </select>
+    <button id="button">add</button>
+    </div>
+    <div class="container">
+            <table id="table" >
+                <tr>
+                    <td> name</td>
+                    <td>age</td>
+                    <td>grade</td>
+                </tr>        
+            </table>
+    
+    </div>
+<script>
+    let student =[
+   {
+    name:{
+        firstName: 'hima',
+        lastName: "sallem"
+    },
+    age:21,
+    grade: "A+"
+   },
+   {
+    name:{
+        firstName: 'Khalid',
+        lastName: "idk"
+    },
+    age:21,
+    grade: "A"
+   },{
+    name:{
+        firstName: 'amir',
+        lastName: "sallem"
+    },
+    age:21,
+    grade: "A+"
+   }  
+    ] 
+     
+    // document.getElementById("table").innerHTML= "dffgf"
+    for(var obje of student){
+        document.getElementById("table").innerHTML += ` <tr>
+                <td>${obje.name.firstName} </td>
+                <td>${obje.age}</td>
+                <td>${obje.grade}</td>
+            </tr>
+        `
+    }
+
+   var studen =[]
+
+    document.getElementById("button").addEventListener("click",function(){
+        let fName = document.getElementById("f-name").value 
+        let lName = document.getElementById("l-name").value 
+        let age = document.getElementById("age").value 
+        var g = document.getElementById("selector")
+        var grade = g.options[g.selectedIndex].text 
+if (fName!=""&&lName!=""&&age>18&&age<80){
+    var count =student.length
+    let add = {
+    name:{
+        firstName: fName,
+        lastName: lName
+    },
+    age: age,
+    grade: grade
+   }
+        student.push(add)
+        {
+        document.getElementById("table").innerHTML += ` <tr>
+                <td>${student[count].name.firstName} </td>
+                <td>${student[count].age}</td>
+                <td>${student[count].grade}</td>
+            </tr>
+        `
+    }
+}
+    else if(age<18||age>80){
+    alert("اي العمر الغريب ده")
+}
+    else{
+    alert("اتنيل املأ المطلوب")
+}
+
+     })
+ 
+</script>
+</body>
+</html>
